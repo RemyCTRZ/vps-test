@@ -1,0 +1,8 @@
+name: CD
+on: [workflow_dispatch]
+jobs:
+  hello: 
+    runs-on: ubuntu-latest
+    steps:
+    - name: helloweurldz
+      run: echo 'Hello simplonz'
