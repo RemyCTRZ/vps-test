@@ -1,8 +1,8 @@
 module.exports = {
-    app: [
+    apps: [
         {
             name: 'remy_devops',
-            script: './dist/index.js',
+            script: './dist/index.js'
         }
     ]
 }
