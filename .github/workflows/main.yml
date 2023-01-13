@@ -28,7 +28,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/Remiclockbox:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/remyclockbox:latest
 
       - name: Deploy using ssh
         uses: appleboy/ssh-action@master
@@ -40,6 +40,6 @@ jobs:
           script: |
               docker stop remy
               docker rm remy
-              docker rmi $(docker images | grep 'Remiclockbox')
+              docker rmi $(docker images | grep 'remyclockbox')
               echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-              docker run -dp 3010:3010 --name="remy" -e 'id=${{ secrets.MOT }}' ${{ secrets.DOCKERHUB_USERNAME }}/Remiclockbox:latest
+              docker run -dp 3010:3010 --name="remy" -e 'id=${{ secrets.MOT }}' ${{ secrets.DOCKERHUB_USERNAME }}/remyclockbox:latest
